@@ -1,0 +1,168 @@
+<MyContent>:
+    size_hint: 1, None
+    height: self.minimum_height
+    MDList:
+        OneLineListItem:
+            text: "Perfil"
+            icon: "account"
+        OneLineListItem:
+            text: "Configurações"
+        OneLineListItem:
+            text: "Informações"
+
+
+
+NavigationLayout:
+    MDNavigationDrawer:
+        NavigationDrawerSubheader:
+            text: "Matérias"
+        NavigationDrawerIconButton:
+            icon: "home"
+            text: "Início"
+            on_release:
+                screen_manager.current = "Card 1"
+        NavigationDrawerIconButton:
+            icon: "math-compass"
+            text: "Matemática"
+            on_release:
+                screen_manager.current = "Matematica"
+        NavigationDrawerIconButton:
+            icon: "atom-variant"
+            text: "Física"
+            on_release:
+                screen_manager.current = "Fisica"
+        NavigationDrawerIconButton:
+            icon: "atom"
+            text: "Química"
+            on_release:
+                screen_manager.current = "Quimica"
+    
+    BoxLayout:
+        orientation: "vertical"
+        MDToolbar:
+            title: "APPlicados"
+            md_bg_color: app.theme_cls.primary_color
+            left_action_items: [['menu', lambda x: root.toggle_nav_drawer()]]
+        ScreenManager:
+            id: screen_manager
+            Screen:
+                name: 'Card 1'
+                BoxLayout:
+                    orientation: "horizontal"
+                    size_hint: 1, 0.5
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.8}
+                    ScrollView:
+                        BoxLayout:
+                            GridLayout:
+                                id: panel_container
+                                cols: 1
+                                size_hint_y: None
+                                height: self.minimum_height
+                BoxLayout:
+                    orientation: "horizontal"
+                    size_hint: 1 , 1
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.9}
+                    TwoLineListItem:
+                        text: "Level"
+                        secondary_text: "30/100 EXP"
+                BoxLayout:
+                    orientation: "horizontal"
+                    size_hint: 1, 1
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.42}
+                    MDProgressBar:
+                        orientation:"horizontal"
+                        value: 30
+
+            Screen:
+                name: "Matematica"
+                ScrollView:
+                    do_scroll_x: False
+                    MDList:
+                        id: mlm
+                        BoxLayout:
+                            size_hint: 1, 1
+                            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                            orientation: "horizontal"
+                            MDTextFieldRound:
+                                orientation: "horizontal"                         
+                                size_hint: 0.9, 0.9
+                                pos_hint: {'center_x': 0.5, 'center_y': 0.75}
+                                icon_type: 'left'
+                                icon_left: 'magnify'
+                                hint_text: "Pesquise aqui"
+                                field_height: dp(30)
+                                icon_size: "18sp"
+                                radius: dp(15)
+                                foreground_color: 0, 0, 0, 1
+                                normal_color: [.432, .124, .8654, .1]
+                        OneLineListItem:
+                            text: "Probabilidade"
+                            on_release:
+                                screen_manager.current = "Card 1"
+                        OneLineListItem:
+                            text: "Trigonometria"
+                        OneLineListItem:
+                            text: "Combinatória"
+                        OneLineListItem:
+                            text: "Estatística"
+                        OneLineListItem:
+                            text: "Razão e proporção"
+                        OneLineListItem:
+                            text: "Calculo"
+                        OneLineListItem:
+                            text: "Funções"
+                        OneLineListItem:
+                            text: "Progressão Aritmética"
+                        OneLineListItem:
+                            text: "Progressão Geométrica"
+                        OneLineListItem:
+                            text: "Conjuntos"
+                        
+            Screen:
+                name: "Fisica"
+                ScrollView:
+                    do_scroll_x: False
+                    MDList:
+                        id: mlf
+                        BoxLayout:
+                            size_hint: 1, 1
+                            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                            orientation: "horizontal"
+                            MDTextFieldRound:
+                                orientation: "horizontal"                         
+                                size_hint: 0.9, 0.9
+                                pos_hint: {'center_x': 0.5, 'center_y': 0.75}
+                                icon_type: 'left'
+                                icon_left: 'magnify'
+                                hint_text: "Pesquise aqui"
+                                field_height: dp(30)
+                                icon_size: "18sp"
+                                radius: dp(15)
+                                foreground_color: 0, 0, 0, 1
+                                normal_color: [.432, .124, .8654, .1]
+                        OneLineListItem:
+                            text: "Leis de Newton"
+            Screen:
+                name: "Quimica"
+                ScrollView:
+                    do_scroll_x: False
+                    MDList:
+                        id: mlq
+                        BoxLayout:
+                            size_hint: 1, 1
+                            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                            orientation: "horizontal"
+                            MDTextFieldRound:
+                                orientation: "horizontal"                         
+                                size_hint: 0.9, 0.9
+                                pos_hint: {'center_x': 0.5, 'center_y': 0.75}
+                                icon_type: 'left'
+                                icon_left: 'magnify'
+                                hint_text: "Pesquise aqui"
+                                field_height: dp(30)
+                                icon_size: "18sp"
+                                radius: dp(15)
+                                foreground_color: 0, 0, 0, 1
+                                normal_color: [.432, .124, .8654, .1]
+                        OneLineListItem:
+                            text: "Estequiometria"
